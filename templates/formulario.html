@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="{{ url_for('static', filename='func.js') }}" defer></script>
+    <title>Formulario de Predicción</title>
+</head>
+<body>
+    <div class="container">
+        <h2>Predicción de Supervivencia en el Titanic</h2>
+        <form action="{{ url_for('predecir') }}" method="POST">
+            <!-- Clase del Pasajero -->
+            <label for="pclass">Clase del Pasajero (1 = 1ra clase, 2 = 2da clase, 3 = 3ra clase):</label>
+            <input type="number" id="pclass" name="pclass" min="1" max="3" value="3" required>
+            <small>Ejemplo: 1 para 1ra clase, 2 para 2da clase, 3 para 3ra clase</small>
+
+            <!-- Sexo -->
+            <label for="sex">Sexo (0 = Mujer, 1 = Hombre):</label>
+            <select id="sex" name="sex" required>
+                <option value="0">Mujer</option>
+                <option value="1">Hombre</option>
+            </select>
+            <small>Ejemplo: 0 para Mujer, 1 para Hombre</small>
+
+            <!-- Edad -->
+            <label for="age">Edad (en años):</label>
+            <input type="number" id="age" name="age" min="0" value="25" required>
+            <small>Ejemplo: Edad en años. Por ejemplo, 25</small>
+
+            <!-- Número de Hermanos/Esposos a bordo -->
+            <label for="sibsp">No. de Hermanos/Esposos a bordo (0 a n):</label>
+            <input type="number" id="sibsp" name="sibsp" min="0" value="0" required>
+            <small>Ejemplo: Número de hermanos o esposos. 0 si viajaba solo</small>
+
+            <!-- Número de Padres/Hijos a bordo -->
+            <label for="parch">No. de Padres/Hijos a bordo (0 a n):</label>
+            <input type="number" id="parch" name="parch" min="0" value="0" required>
+            <small>Ejemplo: Número de padres o hijos. 0 si viajaba solo</small>
+
+            <!-- Tarifa -->
+            <label for="fare">Tarifa (Precio del boleto en libras):</label>
+            <input type="number" step="any" id="fare" name="fare" value="7.25" required>
+            <small>Ejemplo: Precio pagado por el boleto. Ejemplo: 7.25</small>
+
+            <!-- Puerto de Embarque -->
+            <label for="embarked">Puerto de Embarque (0 = Cherburgo, 1 = Queenstown, 2 = Southampton):</label>
+            <select id="embarked" name="embarked" required>
+                <option value="0">Cherburgo (C)</option>
+                <option value="1">Queenstown (Q)</option>
+                <option value="2">Southampton (S)</option>
+            </select>
+            <small>Ejemplo: 0 para Cherburgo, 1 para Queenstown, 2 para Southampton</small>
+
+            <!-- Botón de enviar -->
+            <button type="submit">Predecir</button>
+        </form>
+    </div>
+</body>
+</html>

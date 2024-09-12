@@ -8,5 +8,3 @@ __pycache__/
 # Ignorar archivos de configuración del entorno
 .env
 
-# Ignorar el virtual environment y las librerías
-S4/Lib/
